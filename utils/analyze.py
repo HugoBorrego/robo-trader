@@ -44,14 +44,4 @@ def analyze_data(df):
 
         Acima de 70 → sobrecomprado (possível alerta de venda).
 
-def analyze_data(df):
-    rsi = calcular_rsi(df['Close'])
-    rsi_valid = rsi.dropna()
-    media_movel = df['Close'].rolling(window=20).mean()
-    media_valid = media_movel.dropna()
-
-    return {
-        'RSI': round(rsi_valid[-1], 2) if not rsi_valid.empty else 'Indefinido',
-        'MediaMovel': round(media_valid[-1], 2) if not media_valid.empty else 'Indefinido'
-    }
 """
