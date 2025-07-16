@@ -1,0 +1,50 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.env
+.venv/
+env/
+venv/
+
+# Flask
+instance/
+.webassets-cache
+
+# Packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Testing
+.coverage
+.tox/
+.pytest_cache/
+.hypothesis/
+
+# Logs e bancos locais
+*.log
+db.sqlite3
+db.sqlite3-journal
+
+# IDEs e ferramentas
+.idea/
+.vscode/
+.ropeproject/
+.pyre/
+.pytype/
+.ruff_cache/
+.mypy_cache/
+
+# PyInstaller
+*.spec
+
+# Jupyter
+.ipynb_checkpoints
+
+# Configs
+pyrightconfig.json
+.pdm.toml
+poetry.toml

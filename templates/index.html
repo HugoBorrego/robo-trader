@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robô Trader</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+<body>
+
+    <h1>Robô Trader</h1>
+
+    <form method="POST"> 
+        <input type="text" name="ticker" placeholder="Digite o código da ação">
+    <button type="submit">Analisar</button> 
+    </form>
+
+    {% if analysis %} 
+        <h2>Análise</h2> 
+        <p>RSI: {{ analysis['RSI'] }}</p> 
+        <p>Média Móvel: {{ analysis['MediaMovel'] }}</p> 
+    {% endif %}
+    {% if chart %} 
+        <h2>Gráfico</h2> 
+        {{ chart|safe }} 
+    {% endif %}
+</body>
+</html>

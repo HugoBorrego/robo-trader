@@ -1,0 +1,13 @@
+# Dependências
+
+# Você pode instalar tudo com pip install -r requirements.txt
+flask
+yfinance
+pandas
+plotly
+numpy
+
+# Se for usar FastAPI em vez de Flask, troque flask por:
+
+fastapi
+uvicorn
