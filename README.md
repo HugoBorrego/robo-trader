@@ -22,7 +22,7 @@ Este projeto é um robô trader que permite ao usuário digitar o ticker de uma 
 ## 📦 Instalação
 
 ```bash
-git clone https://github.com/seuusuario/robo_trader.git
+git clone https://github.com/HugoBorrego/Robo-Trader.git
 cd robo_trader
 pip install -r requirements.txt
 python app.py
