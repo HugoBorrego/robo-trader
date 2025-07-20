@@ -9,6 +9,19 @@
 </head>
 <body>
 
+    <header>
+        <div class="title">
+            <h1>NeuroTrade</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#robo">Robo</a></li>
+                <li><a href="#noticias">Notícias</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <h1>Robô Trader</h1>
 
     <form method="POST"> 
@@ -21,9 +34,14 @@
         <p>RSI: {{ analysis['RSI'] }}</p> 
         <p>Média Móvel: {{ analysis['MediaMovel'] }}</p> 
     {% endif %}
+
+    <div class="grafico">
     {% if chart %} 
         <h2>Gráfico</h2> 
         {{ chart|safe }} 
     {% endif %}
+    </div>
+
+    
 </body>
 </html>
