@@ -29,7 +29,7 @@ python app.py
 
 
 robo_trader/
-├── app.py                 # Backend Flask/FastAPI
+├── app.py                 # Backend Flask
 ├── templates/
 │   └── index.html         # Página web
 ├── static/
