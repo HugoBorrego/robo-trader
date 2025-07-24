@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="/static/style.css">
 
 </head>
+
 <body>
 
     <header>
@@ -24,24 +26,38 @@
 
     <h1>Robô Trader</h1>
 
-    <form method="POST"> 
+    <form method="POST">
         <input type="text" name="ticker" placeholder="Digite o código da ação">
-    <button type="submit">Analisar</button> 
+        <button type="submit">Analisar</button>
     </form>
 
-    {% if analysis %} 
-        <h2>Análise</h2> 
-        <p>RSI: {{ analysis['RSI'] }}</p> 
-        <p>Média Móvel: {{ analysis['MediaMovel'] }}</p> 
-    {% endif %}
+    <div class="analise">
+        {% if analysis %}
+            <h2>Análise de Indicadores</h2>
 
-    <div class="grafico">
-    {% if chart %} 
-        <h2>Gráfico</h2> 
-        {{ chart|safe }} 
-    {% endif %}
+            <div>
+                <p><strong>Ação:</strong> {{ ticker }}</p>
+                <p><strong>RSI:</strong> {{ analysis['RSI'] }}</p>
+                <p><strong>Média Móvel:</strong> {{ analysis['MediaMovel'] }}</p>
+            </div>
+
+            <div class="analise-explicacao">
+                <p><strong>Índice de Força Relativa (RSI):</strong> Indica se um ativo está sobrecomprado ou sobrevendido.
+                </p>
+                <p><strong>Média Móvel:</strong> Abaixo de 30 → sobrevendido (possível oportunidade de compra).<br>
+                    Acima de 70 → sobrecomprado (possível alerta de venda).</p>
+            </div>
+        {% endif %}
     </div>
 
-    
+
+    <div class="grafico">
+        {% if chart %}
+            <h2>Gráfico</h2>
+            {{ chart|safe }}
+        {% endif %}
+    </div>
+
 </body>
+
 </html>

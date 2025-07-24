@@ -11,4 +11,3 @@ def plot_chart(df):
         close=df['Close']
     )])
     return fig.to_html(full_html=False)
-

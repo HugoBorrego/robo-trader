@@ -9,6 +9,7 @@ app = Flask(__name__)
 def index():
     chart = None
     analysis = None
+    ticker = None  # Novo
 
     if request.method == 'POST':
         ticker = request.form['ticker']
@@ -19,9 +20,7 @@ def index():
         except Exception as e:
             analysis = {'erro': f'Erro ao buscar dados: {e}'}
 
-    return render_template('index.html', chart=chart, analysis=analysis)
+    return render_template('index.html', chart=chart, analysis=analysis, ticker=ticker)
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
