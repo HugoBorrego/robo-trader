@@ -126,6 +126,56 @@ button:hover {
     text-align: center;
 }
 
+.acoes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .lista {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 400px;
+    }
+
+    .lista h2 {
+      text-align: center;
+      color: #0077cc;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 600px;
+      overflow-y: auto;
+    }
+
+    li {
+      padding: 8px 12px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    .ticker {
+      font-weight: bold;
+      color: #444;
+    }
+
+    .empresa {
+      color: #666;
+    }
+
 @media screen and (min-width: 1025px) {
     .analise {
         grid-template-columns: 1fr 1fr;

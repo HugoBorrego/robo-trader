@@ -26,8 +26,10 @@ git clone https://github.com/HugoBorrego/Robo-Trader.git
 cd robo_trader
 pip install -r requirements.txt
 python app.py
+http://127.0.0.1:5000/
+```
 
-
+```bash
 robo_trader/
 ├── app.py                 # Backend Flask
 ├── templates/
@@ -40,3 +42,4 @@ robo_trader/
 │   └── plot.py            # Função para gerar gráficos
 ├── requirements.txt       # Dependências
 └── README.md              # Documentação do projeto
+```
