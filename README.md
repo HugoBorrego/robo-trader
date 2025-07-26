@@ -48,3 +48,7 @@ robo_trader/
 └── README.md              # Documentação do projeto
 ```
 
+## 📷 Imagens
+![Imagem da Análise e do Robô](docs/images/Robo.png)
+![Imagem do gráfico](docs/images/Grafico.png)
+![Imagem das principais ações](docs/images/Acoes.png)
