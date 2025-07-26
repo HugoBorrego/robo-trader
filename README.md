@@ -29,9 +29,13 @@ python app.py
 http://127.0.0.1:5000/
 ```
 
+## 📁 Pasta
 ```bash
 robo_trader/
 ├── app.py                 # Backend Flask
+├── docs/
+│   ├── images/            # Imagens
+│       └── foto.png      
 ├── templates/
 │   └── index.html         # Página web
 ├── static/
@@ -43,3 +47,4 @@ robo_trader/
 ├── requirements.txt       # Dependências
 └── README.md              # Documentação do projeto
 ```
+

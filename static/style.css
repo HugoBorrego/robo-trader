@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -22,6 +23,7 @@ header {
 
 header h1 {
     margin: 1rem;
+    padding-left: 1rem;
 }
 
 nav ul {
@@ -32,7 +34,7 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin: 0 1rem;
+    margin: 0 1.5rem;
 }
 
 nav ul li a {
@@ -163,7 +165,7 @@ button:hover {
       font-size: 15px;
     }
 
-    li:last-child {
+    .lista li:last-child {
       border-bottom: none;
     }
 
