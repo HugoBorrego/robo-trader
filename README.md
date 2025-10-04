@@ -2,6 +2,9 @@
 
 Este projeto é um robô trader que permite ao usuário digitar o ticker de uma ação, buscar dados via API, analisar indicadores técnicos e visualizar gráficos interativos em uma página web.
 
+## 🌐 Link do site (Deploy)
+🔗 [Robo Trader Deploy](https://robo-trader-l2u96ihdx-hugo-borregos-projects.vercel.app/) 
+
 ## 🚀 Funcionalidades
 
 - Busca de dados históricos de ações com `yfinance`
