@@ -1,106 +1,97 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robô Trader</title>
-    <link rel="stylesheet" href="/static/style.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NeuroTrade - Robô Trader</title>
+  <link rel="stylesheet" href="/static/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
 </head>
-
 <body>
+  <header>
+    <h1><i class="fas fa-brain"></i> NeuroTrade</h1>
+    <nav>
+      <ul>
+        <li><a href="#robo">Robô</a></li>
+        <li><a href="#grafico">Gráfico</a></li>
+        <li><a href="#acoes">Ações</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <header>
-        <div class="title">
-            <h1>NeuroTrade</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#robo">Robô</a></li>
-                <li><a href="#grafico">Gráfico</a></li>
-                <li><a href="#acoes">Ações</a></li>
-            </ul>
-        </nav>
-    </header>
+  <section id="robo" class="section">
+    <h2><i class="fas fa-robot"></i> Robô Trader</h2>
+    <p>Digite o código da ação e descubra se vale a pena investir!</p>
+    <form method="POST">
+      <input type="text" name="ticker" placeholder="Ex: PETR4.SA, VALE3.SA, AAPL"/>
+      <button type="submit"><i class="fas fa-search"></i> Analisar</button>
+    </form>
 
-    <div id="robo">
-        <h1>Robô Trader</h1>
+    {% if analysis %}
+    <div class="card">
+      <h3>📊 Análise de Indicadores</h3>
+      <p><strong>Ação:</strong> {{ ticker }}</p>
+      <p><strong>RSI:</strong> {{ analysis['RSI'] }}</p>
+      <p><strong>Média Móvel:</strong> {{ analysis['MediaMovel'] }}</p>
 
-        <form method="POST">
-            <input type="text" name="ticker" placeholder="Digite o código da ação">
-            <button type="submit">Analisar</button>
-        </form>
-
-        <div class="analise">
-            {% if analysis %}
-            <h2>Análise de Indicadores</h2>
-
-            <div>
-                <p><strong>Ação:</strong> {{ ticker }}</p>
-                <p><strong>RSI:</strong> {{ analysis['RSI'] }}</p>
-                <p><strong>Média Móvel:</strong> {{ analysis['MediaMovel'] }}</p>
-            </div>
-
-            <div class="analise-explicacao">
-                <ul>
-                    <li><strong>Índice de Força Relativa (RSI):</strong> Indica se um ativo está sobrecomprado ou sobrevendido.</li>
-                    <li><strong>Média Móvel:</strong>
-                        <ul>
-                            <li>Abaixo de 30 → sobrevendido (possível oportunidade de compra).</li>
-                            <li>Acima de 70 → sobrecomprado (possível alerta de venda).</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            {% endif %}
-        </div>
-    </div>
-
-
-    <div class="grafico" id="grafico">
-        {% if chart %}
-        <h2>Gráfico</h2>
-        {{ chart|safe }}
+      <div class="recomendacao">
+        {% if analysis['RSI'] < 30 %}
+          <span class="compra">🟢 Recomendação: Comprar</span>
+        {% elif analysis['RSI'] > 70 %}
+          <span class="venda">🔴 Recomendação: Vender</span>
+        {% else %}
+          <span class="manter">🟡 Recomendação: Manter</span>
         {% endif %}
-    </div>
+      </div>
 
-    <div class="acoes" id="acoes">
-        <div class="lista">
-            <h2>Ações Brasileiras</h2>
-            <ul>
-                <li><span class="ticker">VALE3</span> <span class="empresa">Vale S.A.</span></li>
-                <li><span class="ticker">PETR4</span> <span class="empresa">Petrobras PN</span></li>
-                <li><span class="ticker">ITUB4</span> <span class="empresa">Itaú Unibanco PN</span></li>
-                <li><span class="ticker">BBDC4</span> <span class="empresa">Bradesco PN</span></li>
-                <li><span class="ticker">BBAS3</span> <span class="empresa">Banco do Brasil</span></li>
-                <li><span class="ticker">ABEV3</span> <span class="empresa">Ambev S.A.</span></li>
-                <li><span class="ticker">WEGE3</span> <span class="empresa">WEG S.A.</span></li>
-                <li><span class="ticker">LREN3</span> <span class="empresa">Lojas Renner</span></li>
-                <li><span class="ticker">PRIO3</span> <span class="empresa">PetroRio</span></li>
-                <li><span class="ticker">RDOR3</span> <span class="empresa">Rede D'Or</span></li>
-            </ul>
-        </div>
-
-        <div class="lista">
-            <h2>Ações Americanas</h2>
-            <ul>
-                <li><span class="ticker">AAPL</span> <span class="empresa">Apple Inc.</span></li>
-                <li><span class="ticker">MSFT</span> <span class="empresa">Microsoft Corp.</span></li>
-                <li><span class="ticker">AMZN</span> <span class="empresa">Amazon.com Inc.</span></li>
-                <li><span class="ticker">GOOG</span> <span class="empresa">Alphabet Inc.</span></li>
-                <li><span class="ticker">META</span> <span class="empresa">Meta Platforms</span></li>
-                <li><span class="ticker">TSLA</span> <span class="empresa">Tesla Inc.</span></li>
-                <li><span class="ticker">NVDA</span> <span class="empresa">NVIDIA Corp.</span></li>
-                <li><span class="ticker">JPM</span> <span class="empresa">JPMorgan Chase</span></li>
-                <li><span class="ticker">V</span> <span class="empresa">Visa Inc.</span></li>
-                <li><span class="ticker">NFLX</span> <span class="empresa">Netflix Inc.</span></li>
-            </ul>
-        </div>
+      <div class="explicacao">
+        <ul>
+          <li><strong>RSI:</strong> Indica se o ativo está sobrecomprado ou sobrevendido.</li>
+          <li><strong>Média Móvel:</strong> Ajuda a identificar tendências de curto e longo prazo.</li>
+        </ul>
+      </div>
     </div>
-    <footer>
-        <p>&copy; 2025 Hugo Borrego</p>
-    </footer>
+    {% endif %}
+  </section>
+
+  <section id="grafico" class="section">
+    {% if chart %}
+    <h2><i class="fas fa-chart-line"></i> Gráfico</h2>
+    <div class="grafico-container">
+      {{ chart|safe }}
+    </div>
+    {% endif %}
+  </section>
+
+  <section id="acoes" class="section">
+    <h2><i class="fas fa-building-columns"></i> Ações em Destaque</h2>
+    <div class="acoes-lista">
+      <div class="acoes-card">
+        <h3>🇧🇷 Brasileiras</h3>
+        <ul>
+          <li><strong>VALE3.SA</strong> - Vale S.A.</li>
+          <li><strong>PETR4.SA</strong> - Petrobras PN</li>
+          <li><strong>ITUB4.SA</strong> - Itaú Unibanco PN</li>
+          <li><strong>BBDC4.SA</strong> - Bradesco PN</li>
+          <li><strong>BBAS3.SA</strong> - Banco do Brasil</li>
+        </ul>
+      </div>
+      <div class="acoes-card">
+        <h3>🇺🇸 Americanas</h3>
+        <ul>
+          <li><strong>AAPL</strong> - Apple Inc.</li>
+          <li><strong>MSFT</strong> - Microsoft Corp.</li>
+          <li><strong>AMZN</strong> - Amazon.com Inc.</li>
+          <li><strong>GOOG</strong> - Alphabet Inc.</li>
+          <li><strong>TSLA</strong> - Tesla Inc.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 • Desenvolvido por Hugo Borrego</p>
+  </footer>
 </body>
-
 </html>
